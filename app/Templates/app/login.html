@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{%  extends 'app/base.html' %}
+{% load static %}
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        {% block register %}
+        <h1>Trang dang nhap</h1>
+       <form method = "POST" action="">
+            {% csrf_token %}
+        <div class="form-outline flex-fill mb-0">
+           <input type="text" name = 'username' id="form3Example" class="form-control" />
+           <label class="form-label" for="form3Example">User Name</label>
+        </div>
+        <div class="form-outline flex-fill mb-0">
+            <input type="text" name='password' id="form3Example" class="form-control" />
+            <label class="form-labael" for="form3Example">Password</label>
+        </div>
+
+          <button type="submit" class="btn btn-primary btn-lg">Login</button>
+          <p class="text-center h5"> Ban chua co tai khoan? <a href = {% url "register" %}> Register </a> </p>
+          {% for message in messages %}
+          <p id='message' class="text-center h5"> {{message}} </p>
+
+          {% endfor %}
+        </form>
+        <script src="" async defer></script>
+        {% endblock register %}
+    </body>
+</html>
